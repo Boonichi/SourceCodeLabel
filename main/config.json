@@ -1,0 +1,84 @@
+{
+    "random_seed" : 47,
+    "level": 3,
+    "logging": {
+        "filename": "logs/run.log",
+        "filemode": "w",
+        "level": "debug",
+        "enable_formatter": false
+    },
+    "tags" : "./storages/_tags.txt",
+    "problem_set": "./storages/problem_set.json",
+    "tag_prepared" : "./storages/tags_prepared.json",
+    "dataset" : "../dataset/",
+    "raw_dataset": "./storages/raw_dataset.json",
+    "prepared_dataset" : "./storages/dataset_prepared.json",
+    "cpg_dataset": "./storages/cpgDataset",
+    "train_dataset" : "./storages/train/",
+    "test_dataset" : "./storages/test/",
+    "cpg" : "./storages/cpg.pickle",
+    "weights" : "./storages/weights/",
+    "mlb" : "./storages/mlb.pickle",
+    "prepare" :{
+        "handler" : "path",
+        "ContinueState": true,
+        "parallel" : true,
+        "NumWorker" : 8,
+        "NumSource" : 3
+    },
+    "split" :{
+        "train": 0.8,
+        "dev": 0.2,
+        "n_split" : 1,
+        "MAX_CONTEXT":{
+            "ast":500,
+            "cfg":50,
+            "cdg":100,
+            "ddg":100
+        },
+        "ContinueState" : true
+    },
+    "embedding":{
+        "tokenizer" : "Default",
+        "Default":{
+            "num_words" : 500000
+        }
+    },
+    "models":{
+        "SourceGraph":{
+            "embedding":{
+                "EMBEDDING_TOKEN_DIM" : 128,
+                "EMBEDDING_PATH_DIM" : 128
+            },
+            "final_dense":{
+                "units": 28,
+                "activation" : "sigmoid",
+                "use_bias" : false,
+                "bias_regularizer" : 0.01,
+                "kernel_regularizer" : 0.01
+            },
+            "loss" : "binary_crossentropy",
+            "dropout" : 0.1,
+            "optimizer" : "Adam",
+            "metrics" : "accuracy"
+        }
+    },
+    "train":{
+        "epoch" : 20,
+        "callback" : true,
+        "batch_size" : 2,
+        "ContinueState" : false
+    },
+    "apriori":{
+        "classify_T" : 0.4,
+        "sp_T" : 0.4,
+        "num_tag" : 28
+    },
+    "evaluation":{
+        "handler" : "apriori",
+        "metrics" : "F1_score_micro|hamming_loss",
+        "sample" : true,
+        "verbose" : true
+    },
+    "TagState" : true
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<results version="2">
+    <cppcheck version="2.9"/>
+    <errors>
+        <error id="shadowVariable" severity="style" msg="Local variable &apos;n&apos; shadows outer variable" verbose="Local variable &apos;n&apos; shadows outer variable" cwe="398" file0="../test/1211/1211.cpp">
+            <location file="../test/1211/1211.cpp" line="54" column="5" info="Shadow variable"/>
+            <location file="../test/1211/1211.cpp" line="50" column="11" info="Shadowed declaration"/>
+            <symbol>n</symbol>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;flag&apos; is assigned a value that is never used." verbose="Variable &apos;flag&apos; is assigned a value that is never used." cwe="563" file0="../test/1211/1211.cpp">
+            <location file="../test/1211/1211.cpp" line="63" column="11"/>
+            <symbol>flag</symbol>
+        </error>
+    </errors>
+</results>
