@@ -3,8 +3,8 @@ import logging
 
 from util import parser_config, setup_logging, set_random_seed, exit_handler
 
-from datasets.utils import create_raw_dataset, preprocessing, split_dataset
-from models.utils import prepare_input, train, test
+from datasets.common import create_raw_dataset, preprocessing, split_dataset
+from models.common import prepare_input, train, test
 
 
 #from models.utils import preprocess_dataset

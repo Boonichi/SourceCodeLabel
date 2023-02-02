@@ -203,3 +203,20 @@ def tf_gpu_housekeeping():
         except RuntimeError as e:
             logging.critical(str(e))
             exit(1)
+
+def load_problem_folder(path):
+    dataset = list()
+    for problem in os.listdir(path):
+        problem_path = os.path.join(path, problem)
+        if not os.path.isfile(problem_path):
+            for cpp_file in os.listdir(problem_path):
+                if (cpp_file.endswith(".cpp")):
+                    sample = dict()
+                    cpp_path = os.path.join(problem_path, cpp_file)
+                    cpp_name = cpp_file.split(".")[0]
+                    sample["problem"] = problem
+                    sample["index"] = cpp_name
+                    with open(cpp_path, "r", encoding = "utf-8") as f:
+                        sample["source"] = f.read()
+                    dataset.append(sample)
+    return dataset
