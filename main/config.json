@@ -7,24 +7,12 @@
         "level": "debug",
         "enable_formatter": false
     },
-    "tags" : "./storages/_tags.txt",
-    "problem_set": "./storages/problem_set.json",
-    "tag_prepared" : "./storages/tags_prepared.json",
-    "dataset" : "../dataset/",
-    "raw_dataset": "./storages/raw_dataset.json",
-    "prepared_dataset" : "./storages/dataset_prepared.json",
-    "cpg_dataset": "./storages/cpgDataset",
-    "train_dataset" : "./storages/train/",
-    "test_dataset" : "./storages/test/",
-    "cpg" : "./storages/cpg.pickle",
-    "weights" : "./storages/weights/",
-    "mlb" : "./storages/mlb.pickle",
     "prepare" :{
         "handler" : "path",
         "ContinueState": true,
         "parallel" : true,
         "NumWorker" : 8,
-        "NumSource" : 3
+        "NumSource" : 10
     },
     "split" :{
         "train": 0.8,
@@ -64,7 +52,7 @@
         }
     },
     "train":{
-        "epoch" : 20,
+        "epoch" : 5,
         "callback" : true,
         "batch_size" : 2,
         "ContinueState" : false
@@ -80,5 +68,18 @@
         "sample" : true,
         "verbose" : true
     },
-    "TagState" : true
+    "TagState" : true,
+    "tags" : "./storages/_tags.txt",
+    "problem_set": "./storages/problem_set.json",
+    "tag_prepared" : "./storages/tags_prepared.json",
+    "dataset" : "../dataset/",
+    "raw_dataset": "./storages/raw_dataset.json",
+    "prepared_dataset" : "./storages/dataset_prepared.json",
+    "cpg_dataset": "./storages/cpgDataset",
+    "train_dataset" : "./storages/train/",
+    "test_dataset" : "./storages/test/",
+    "cpg" : "./storages/cpg.pickle",
+    "weights" : "./storages/weights/",
+    "mlb" : "./storages/mlb.pickle",
+    "SaveModelDir" : "./storages/SourceCodeLabel/"
 }

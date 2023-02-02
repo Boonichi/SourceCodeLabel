@@ -170,20 +170,6 @@ def ensure_path(path):
         os.makedirs(path, exist_ok=True)
     return path
 
-def chunkByProblem(seq, num):
-    problems = list(set(sample["problem"] for sample in seq))
-    avg = len(problems) / float(num)
-    out = []
-    last = 0.0
-
-    while last < len(problems):
-        out.append(problems[int(last):int(last + avg)])
-        last += avg
-    result = []
-    for chunk_problem in out:
-        result.append([sample for sample in seq if sample["problem"] in chunk_problem])
-        
-    return result
 def checkSparse(dataset): 
     def isSparse(array) :
         
